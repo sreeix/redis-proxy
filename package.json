@@ -1,0 +1,33 @@
+{
+    "author": "Sreekanth <gabbar@activesphere.com>"
+  , "name": "redis-proxy"
+  , "description": "proxy for redis servers"
+  , "version": "0.0.1"
+  , "repository": {
+      "type": "git"
+    , "url": "git@github.com:sreeix/redis-proxy.git"
+  }
+  , "main": "server.js"
+  , "engines": { "node": ">= 0.4.7" }
+  , "node-version": ">0.4.7"
+  , "dependencies": {
+      "jade": "0.20.0"
+    , "express": "2.5.1"
+    , "underscore": "1.2.4"
+    , "async": "0.1.15"
+    , "hiredis": ""
+    , "redis": "0.7.1"
+  }
+  , "devDependencies": {
+      "mocha": "0.0.8"
+    , "should": "0.3.2"
+    , "jshint":"0.5.5"
+    , "metrics":">=0.1.5"
+  }
+  , "scripts": {
+      "start": "node server.js"
+    , "console": "node"
+    , "test": "NODE_ENV=test mocha --reporter dot --require should --ui bdd test/lib/*.js"
+    , "lint": " find . -not -path '*node_modules*' -and -name '*.js' -print0 | xargs -0 node_modules/.bin/jshint"
+  }
+}
