@@ -1,0 +1,170 @@
+redis-benchmark  -n 10000 -c 1
+
+PING (inline): 1000.00
+PING (inline): 17199.20
+====== PING (inline) ======
+  10000 requests completed in 0.47 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+99.95% <= 1 milliseconds
+100.00% <= 3 milliseconds
+21186.44 requests per second
+
+PING: 25214.29
+PING: 25712.23
+====== PING ======
+  10000 requests completed in 0.39 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25906.73 requests per second
+
+MSET (10 keys): 18415.49
+MSET (10 keys): 18635.21
+====== MSET (10 keys) ======
+  10000 requests completed in 0.53 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+18726.59 requests per second
+
+SET: 24740.74
+SET: 25025.14
+====== SET ======
+  10000 requests completed in 0.40 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25125.63 requests per second
+
+GET: 25564.59
+====== GET ======
+  10000 requests completed in 0.39 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25773.20 requests per second
+
+INCR: 24728.57
+INCR: 24881.25
+====== INCR ======
+  10000 requests completed in 0.40 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+24937.66 requests per second
+
+LPUSH: 24988.17
+====== LPUSH ======
+  10000 requests completed in 0.40 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+24875.62 requests per second
+
+LPOP: 23235.29
+LPOP: 25029.96
+====== LPOP ======
+  10000 requests completed in 0.41 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+24630.54 requests per second
+
+SADD: 17900.90
+SADD: 17290.86
+====== SADD ======
+  10000 requests completed in 0.57 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+17482.52 requests per second
+
+SPOP: 17666.67
+SPOP: 17934.26
+====== SPOP ======
+  10000 requests completed in 0.49 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+20283.98 requests per second
+
+LPUSH (again, in order to bench LRANGE): 24543.48
+LPUSH (again, in order to bench LRANGE): 25219.59
+====== LPUSH (again, in order to bench LRANGE) ======
+  10000 requests completed in 0.40 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+25316.46 requests per second
+
+LRANGE (first 100 elements): 20726.67
+LRANGE (first 100 elements): 20890.00
+====== LRANGE (first 100 elements) ======
+  10000 requests completed in 0.48 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+20876.83 requests per second
+
+LRANGE (first 300 elements): 15181.29
+LRANGE (first 300 elements): 15289.79
+====== LRANGE (first 300 elements) ======
+  10000 requests completed in 0.65 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+15290.52 requests per second
+
+LRANGE (first 450 elements): 12529.41
+LRANGE (first 450 elements): 13093.63
+LRANGE (first 450 elements): 13168.28
+====== LRANGE (first 450 elements) ======
+  10000 requests completed in 0.76 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+13157.89 requests per second
+
+LRANGE (first 600 elements): 9500.00
+LRANGE (first 600 elements): 11507.81
+LRANGE (first 600 elements): 11507.91
+LRANGE (first 600 elements): 11468.25
+====== LRANGE (first 600 elements) ======
+  10000 requests completed in 0.87 seconds
+  1 parallel clients
+  3 bytes payload
+  keep alive: 1
+
+100.00% <= 0 milliseconds
+11494.25 requests per second
+
+
