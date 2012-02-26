@@ -26,6 +26,6 @@ var server = net.createServer(function (socket) {
     });
   });
 });
-
+redis_proxy.watch();
 server.listen(config.listen_port, "127.0.0.1");
 console.log("server is listening on 127.0.0.1:"+ config.listen_port);
