@@ -17,6 +17,7 @@ Install
 =========
 
 Install via npm module install
+
     git clone git@github.com:sreeix/redis-proxy.git
  
     Modify the config.json
