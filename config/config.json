@@ -3,6 +3,10 @@
     "host": "localhost"
     ,"port": 6379
   }
+, {
+    "host": "localhost"
+    , "port": 6389
+  }
   ]
   ,"listen_port": 9999
   ,"check_period": 5
