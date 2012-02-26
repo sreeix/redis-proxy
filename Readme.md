@@ -17,11 +17,11 @@ Install
 =========
 
 Install via npm module install
- | git clone git@github.com:sreeix/redis-proxy.git
+    git clone git@github.com:sreeix/redis-proxy.git
  
- | Modify the config.json
+    Modify the config.json
  
- | node server.js
+    node server.js
  
  
  Unfortunately I have had to make minor modifications to node-redis to support raw commands to redis, so it can't be published to npm as yet.
