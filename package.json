@@ -15,6 +15,7 @@
     , "express": "2.5.1"
     , "underscore": "1.2.4"
     , "async": "0.1.15"
+    , "winston": "0.5.10"
     , "hiredis": ""
     , "redis": "0.7.1"
   }

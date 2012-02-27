@@ -66,3 +66,10 @@ There can be multiple slaves. Each will become slave of the master, and on maste
 
 Limitations
 ============
+
+* Benchmarks show 3x drop in performance
+
+* No support for Monitor and pub/sub commands
+
+* No support for authentication
+

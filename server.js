@@ -1,9 +1,9 @@
 var net = require('net');
 var fs = require('fs');
 var RedisProxy = require('./lib/redis_proxy');
+var winston = require('winston');
 
 var config = JSON.parse(fs.readFileSync("config/config.json"));
-console.log(config);
 var redis_proxy = new RedisProxy(config);
 
 var server = net.createServer(function (socket) {
@@ -16,7 +16,7 @@ var server = net.createServer(function (socket) {
     var command = data.toString('utf8');
     redis_proxy.sendCommand(command, function(err, res) {
       if(err){
-        console.log("err:"+err);
+        winston.error(err);
       }
       socket.write(res.toString('utf8'));
       if(/quit/i.test(data)){
@@ -27,5 +27,6 @@ var server = net.createServer(function (socket) {
   });
 });
 redis_proxy.watch();
+
 server.listen(config.listen_port, "127.0.0.1");
 console.log("server is listening on 127.0.0.1:"+ config.listen_port);
