@@ -12,6 +12,8 @@ If the Active Redis crashes or goes down for maintenance, we want the applicatio
 
 This reduces the common redis slave master replication dance that needs to be done when bad stuff happens or needs maintenance
 
+It is implemented using Node.js because it 
+
 Disclaimer
 =============
 
@@ -20,10 +22,11 @@ We are in the process of testing it, it works for simple commands, but i have no
 Please consider this alpha software. All help and pull requests/ ideas are appreciated. 
 
 
+
 Install
 =========
 
-Install via npm module install
+Current Mechanism
 
     git clone git@github.com:sreeix/redis-proxy.git
  
@@ -33,6 +36,7 @@ Install via npm module install
  
  
 Unfortunately I have had to make minor modifications to node-redis to support raw commands to redis, so it can't be published to npm as yet.
+But soon it should be available as an npm module
 
 Scenarios
 ============
@@ -64,12 +68,24 @@ There can be only one master in the system.
 There can be multiple slaves. Each will become slave of the master, and on master doing down, one of the slave it randomly picked as master.
 
 
-Limitations
+Redis-Proxy Stability
+==================
+
+Redis proxy can become a single point of failure, If it goes down your redis servers will become inaccessible. There are 2 possible setups
+
+*  Using Nodemon/Forever to keep the redis proxy up all the time
+*  Have a backup redis-proxy on Elastic IP or Virtual IP and switch manually or using keepalived.
+
+
+
+Limitations /TODOS
 ============
 
-* Benchmarks show 3x drop in performance
+* Benchmarks show 3x drop in performance(Investigating it and will post a fix soon)
 
-* No support for Monitor and pub/sub commands
+* No support for Monitor and pub/sub commands( There is no reason why this can't be supported)
 
-* No support for authentication
+* No support for authentication(There is no reason why this can't be supported)
+
+* Would be nice to have a small ui for showing errors and status of redis servers.
 
