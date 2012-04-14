@@ -1,0 +1,38 @@
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
+info using npm@1.1.0-3
+info using node@v0.6.10
+verbose config file /Users/v/.npmrc
+verbose config file /usr/local/etc/npmrc
+verbose config file /usr/local/lib/node_modules/npm/npmrc
+verbose caching /Users/v/code/redis-proxy/package.json
+verbose loadDefaults redis-proxy@0.0.1
+verbose run-script [ 'prestart', 'start', 'poststart' ]
+info prestart redis-proxy@0.0.1
+info start redis-proxy@0.0.1
+verbose unsafe-perm in lifecycle true
+silly exec sh "-c" "node server.js"
+silly spawning [ 'sh', [ '-c', 'node server.js' ], '/Users/v/code/redis-proxy' ]
+info redis-proxy@0.0.1 Failed to exec start script
+ERR! redis-proxy@0.0.1 start: `node server.js`
+ERR! `sh "-c" "node server.js"` failed with 1
+ERR! 
+ERR! Failed at the redis-proxy@0.0.1 start script.
+ERR! This is most likely a problem with the redis-proxy package,
+ERR! not with npm itself.
+ERR! Tell the author that this fails on your system:
+ERR!     node server.js
+ERR! You can get their info via:
+ERR!     npm owner ls redis-proxy
+ERR! There is likely additional logging output above.
+ERR! 
+ERR! System Darwin 11.3.0
+ERR! command "node" "/usr/local/bin/npm" "start"
+ERR! cwd /Users/v/code/redis-proxy
+ERR! node -v v0.6.10
+ERR! npm -v 1.1.0-3
+ERR! code ELIFECYCLE
+ERR! message redis-proxy@0.0.1 start: `node server.js`
+ERR! message `sh "-c" "node server.js"` failed with 1
+ERR! errno {}
+verbose exit [ 1, true ]
