@@ -5,6 +5,7 @@ var winston = require('winston');
 
 var config = JSON.parse(fs.readFileSync("config/config.json"));
 var redis_proxy = new RedisProxy(config);
+winston.level = config.debug ? 'debug' : 'info';
 
 var server = net.createServer(function (socket) {
   console.log('client connected');

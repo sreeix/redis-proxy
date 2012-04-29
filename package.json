@@ -17,6 +17,7 @@
     , "async": "0.1.15"
     , "winston": "0.5.10"
     , "hiredis": ""
+    , "node-redis-raw": "0.0.1"
     , "redis": "0.7.1"
   }
   , "devDependencies": {

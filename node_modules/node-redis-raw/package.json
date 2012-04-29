@@ -1,0 +1,16 @@
+{
+    "author": "Sreekanth <gabbar@activesphere.com>"
+  , "name": "node-redis-raw"
+  , "description": "Raw mode for node redis"
+  , "version": "0.0.1"
+  , "repository": {
+      "type": "git"
+    , "url": "git@github.com:sreeix/node-redis-raw.git"
+  } 
+  , "main": "lib/raw.js"
+  , "engines": { "node": ">= 0.4.7" }
+  , "node-version": ">0.4.7"
+  , "dependencies": {
+     "redis": "0.7.1"
+  }
+}
