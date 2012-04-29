@@ -11,4 +11,5 @@
   ,"listen_port": 9999
   ,"check_period": 5000
   ,"pool_size": 20
+  , "debug": false
 }
