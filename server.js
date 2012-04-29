@@ -19,11 +19,13 @@ var server = net.createServer(function (socket) {
       if(err){
         logger.error(err);
       }
-      socket.write(res.toString('utf8'));
-	  if(/quit/i.test(data)){
-	    socket.end();
-	    redis_proxy.quit(id);
-	  }
+  	  if(res){
+  	    socket.write(res.toString('utf8'));
+  	  }
+  	  if(/quit/i.test(data)){
+  	    socket.end();
+  	    redis_proxy.quit(id);
+  	  }
     });
   });
 });
