@@ -10,10 +10,14 @@ describe('ConnectionPool', function() {
   });
 
   it('should open connections immediately', function(done) {
+    var count = 0;
     new Pool({maxSize: 3
       , delayCreation: false
       , create: function(){
-        done();
+        count++;
+        if(count == 3){
+          done();
+        }
       }
     });
   });
@@ -41,7 +45,7 @@ describe('ConnectionPool', function() {
   });
 
   it('should use same item that was created for the id', function() {
-    var whatToReturn = ['xx', 'yyy'];
+    var whatToReturn = ['xx', 'yyy', 'zzzz'];
     var pool = new Pool({maxSize: 3
       , delayCreation: true
       , create: function(cb){
@@ -50,11 +54,11 @@ describe('ConnectionPool', function() {
     });
     pool.take('1').should.equal('xx');
     pool.take('1').should.equal('xx');
-    pool.freepool.length.should.equal(0);
+    pool.freepool.length.should.equal(2);
   });
 
   it('should create new connection for another id', function(done) {
-    var whatToReturn = ['xx', 'yyy'];
+    var whatToReturn = ['xx', 'yyy', 'zzzz'];
     var pool = new Pool({maxSize: 3
       , delayCreation: true
       , create: function(cb){
@@ -63,12 +67,12 @@ describe('ConnectionPool', function() {
     });
     pool.take('1').should.equal('xx');
     pool.take('2').should.equal('yyy');
-    pool.freepool.length.should.equal(0);
+    pool.freepool.length.should.equal(1);
     done();
   });
 
   it('should release on close', function() {
-    var whatToReturn = ['xx', 'yyy'];
+    var whatToReturn = ['xx', 'yyy', 'zzzz'];
     var pool = new Pool({maxSize: 3
       , delayCreation: true
       , create: function(cb){
@@ -79,12 +83,12 @@ describe('ConnectionPool', function() {
     pool.take('2').should.equal('yyy');
     pool.close('2');
     
-    pool.freepool.length.should.equal(1);
+    pool.freepool.length.should.equal(2);
   }); 
   
   it('should release on close', function() {
     var whatToReturn = ['xx', 'yyy'];
-    var pool = new Pool({maxSize: 3
+    var pool = new Pool({maxSize: 2
       , delayCreation: true
       , create: function(cb){
         cb(null, whatToReturn.shift());
@@ -96,5 +100,31 @@ describe('ConnectionPool', function() {
     
     pool.freepool.length.should.equal(1);
     pool.take('3').should.equal('yyy');
+  });
+
+  it('should release on close', function() {
+    var whatToReturn = ['xx', 'yyy', 'zzzz'];
+    var pool = new Pool({maxSize: 3
+      , delayCreation: true
+      , create: function(cb){
+        cb(null, whatToReturn.shift());
+      }
+    });
+    pool.take('1').should.equal('xx');
+    pool.take('2').should.equal('yyy');
+    pool.close('2');
+  });
+
+  it('should close connections release when close exists', function() {
+    var whatToReturn = ['xx', 'yyy', 'zzzz'];
+    var pool = new Pool({maxSize: 3
+      , delayCreation: true
+      , create: function(cb){
+        cb(null, whatToReturn.shift());
+      }
+    });
+    pool.take('1').should.equal('xx');
+    pool.take('2').should.equal('yyy');
+    pool.close('2');
   });
 });
