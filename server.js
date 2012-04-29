@@ -13,16 +13,17 @@ var server = net.createServer(function (socket) {
   });
 
   socket.on('data', function(data) {
-    var command = data.toString('utf8');
-    redis_proxy.sendCommand(command, function(err, res) {
+    var command = data.toString('utf8'), id = socket.remoteAddress+':'+socket.remotePort;
+	
+    redis_proxy.sendCommand(command, id, function(err, res) {
       if(err){
         logger.error(err);
       }
       socket.write(res.toString('utf8'));
-      if(/quit/i.test(data)){
-        socket.end();
-        redis_proxy.quit();
-      }
+	  if(/quit/i.test(data)){
+	    socket.end();
+	    redis_proxy.quit(id);
+	  }
     });
   });
 });
