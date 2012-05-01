@@ -2,7 +2,7 @@
     "author": "Sreekanth <gabbar@activesphere.com>"
   , "name": "node-redis-raw"
   , "description": "Raw mode for node redis"
-  , "version": "0.0.1"
+  , "version": "0.0.2"
   , "repository": {
       "type": "git"
     , "url": "git@github.com:sreeix/node-redis-raw.git"
