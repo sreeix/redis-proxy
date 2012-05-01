@@ -29,7 +29,7 @@
   , "scripts": {
       "start": "node server.js"
     , "console": "node"
-    , "test": "NODE_ENV=test mocha --reporter dot --require should --ui bdd test/lib/*.js"
+    , "test": "mocha --reporter dot --require should --ui bdd test/lib/*.js"
     , "lint": " find . -not -path '*node_modules*' -and -name '*.js' -print0 | xargs -0 node_modules/.bin/jshint"
   }
 }
