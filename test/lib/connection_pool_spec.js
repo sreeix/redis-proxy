@@ -250,9 +250,6 @@ describe('ConnectionPool', function() {
           }
         });
         _.times(6, function(i){
-          console.log('---------------------------------');
-          console.log(i);
-          console.log('---------------------------------');
           pool.take(i, function(err, conn){
             if(i === 5){
               err.should.not.equal(null);
