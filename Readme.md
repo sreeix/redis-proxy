@@ -91,3 +91,5 @@ Limitations /TODOS
 
 * It currently only works as master/slave mode. And it's highly unlikely that there could be a switch to sharded mode.
 
+* Support to pipelined is in the works, but it does not work yet.
+
