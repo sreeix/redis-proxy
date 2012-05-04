@@ -89,3 +89,5 @@ Limitations /TODOS
 
 * Would be nice to have a small ui for showing errors and status of redis servers.
 
+* It currently only works as master/slave mode. And it's highly unlikely that there could be a switch to sharded mode.
+
