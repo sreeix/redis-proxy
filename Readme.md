@@ -25,17 +25,29 @@ Please consider this alpha software. All help and pull requests/ ideas are appre
 Install
 =========
 
-Current Mechanism
+From NPM 
+---------
+Node.js and NPM are prerequistes. [Here is the link to install both.](https://github.com/joyent/node/wiki/Installation)
+
+
+* `npm install -g redis-proxy`
+
+* `redis-proxy <path to config.json>`
+
+or
+
+* `redis-proxy` to use the defaults config.json which has basic defaults
+
+From Source
+-------------
 
     git clone git@github.com:sreeix/redis-proxy.git
  
-    Modify the config.json
+    Modify the config/config.json
  
-    node server.js
+    npm start
  
  
-Unfortunately I have had to make minor modifications to node-redis to support raw commands to redis, so it can't be published to npm as yet.
-But soon it should be available as an npm module
 
 Scenarios
 ============
@@ -80,7 +92,7 @@ Redis proxy can become a single point of failure, If it goes down your redis ser
 Limitations /TODOS
 ============
 
-* Benchmarks show 3x drop in performance(Investigating it and will post a fix soon)
+* Benchmarks show  about 3x drop in performance(Investigating it and will post a fix soon)
 
 * No support for Monitor and pub/sub commands( There is no reason why this can't be supported)
 
