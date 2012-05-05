@@ -9,7 +9,7 @@ var redis_proxy = new RedisProxy(config);
 logger.level = config.debug ? 'debug' : 'info';
 
 var server = net.createServer(function (socket) {
-  console.log('client connected');
+  logger.debug('client connected');
   socket.on('end', function() {
     logger.debug('client disconnected');
     // Hack to get the connection identifier, so that we can release the connection
