@@ -12,7 +12,6 @@ If the Active Redis crashes or goes down for maintenance, we want the applicatio
 
 This reduces the common redis slave master replication dance that needs to be done when bad stuff happens or needs maintenance
 
-It is implemented using Node.js because it 
 
 Disclaimer
 =============
