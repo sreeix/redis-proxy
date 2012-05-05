@@ -84,8 +84,6 @@ Limitations /TODOS
 
 * No support for Monitor and pub/sub commands( There is no reason why this can't be supported)
 
-* No support for authentication(There is no reason why this can't be supported)
-
 * Would be nice to have a small ui for showing errors and status of redis servers.
 
 * It currently only works as master/slave mode. And it's highly unlikely that there could be a switch to sharded mode.
