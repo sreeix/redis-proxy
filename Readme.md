@@ -6,20 +6,32 @@ It's like haproxy except for redis.
 
 Why RedisProxy?
 
-Typically for every redis server we setup we have a backup server setup as a slave of the main server. 
+Typically for every redis server we setup, we have a backup server setup as a slave of the main server.
 
 If the Active Redis crashes or goes down for maintenance, we want the application to seamlessly use(read/write) data from the backup server. But the problem is once the backup takes over as active it will be out of sync with the original(master) and should become the sale of the current active. This is solved by redis-proxy, which proxies the active redis. It is also smart enough to issue slave of commands to machines that start up and make masters slave of no one. 
 
-This reduces the common redis slave master replication dance that needs to be done when bad stuff happens or needs maintenance
+This reduces the common redis slave master replication dance that needs to be done when bad stuff happens or maintenance of the servers are needed
 
+
+Features
+============
+
+* Server Monitoring (to track masters and slaves)
+
+* Automatic slave upgrade on master failure
+
+* Connection Pooling
+
+* Supports Pipelining
+
+* Honors Existing Master Slave Configurations( ie. if the  masters and slaves are already setup then it will maintain the same configuration, instead of largescale movement of data)
 
 Disclaimer
 =============
 
-We are in the process of testing it, it works for simple commands, but i have not tested and validated it against the whole set of redis commands. It is likely that commands like Monitor/Pub sub is not working correctly(or at all).
+We are in the process of testing it, it works for simple commands, but i have not tested and validated it against the whole set of redis commands. It is likely that commands like Pub sub don't work correctly(or at all).
 
 Please consider this alpha software. All help and pull requests/ ideas are appreciated. 
-
 
 
 Install
@@ -94,11 +106,14 @@ Limitations /TODOS
 
 * Benchmarks show  about 3x drop in performance(Investigating it and will post a fix soon)
 
-* No support for Monitor and pub/sub commands( There is no reason why this can't be supported)
+* No support for Monitoring & pub/sub commands( There is no reason why this can't be supported)
 
 * Would be nice to have a small ui for showing errors and status of redis servers.
 
 * It currently only works as master/slave mode. And it's highly unlikely that there could be a switch to sharded mode.
 
-* Support to pipelined is in the works, but it does not work yet.
+* Support for Read Write Splits
+
+* No downtime adding and removing slaves
+
 
