@@ -8,7 +8,7 @@ Why RedisProxy?
 
 Typically for every redis server we setup, we have a backup server setup as a slave of the main server.
 
-If the Active Redis crashes or goes down for maintenance, we want the application to seamlessly use(read/write) data from the backup server. But the problem is once the backup takes over as active it will be out of sync with the original(master) and should become the sale of the current active. This is solved by redis-proxy, which proxies the active redis. It is also smart enough to issue slave of commands to machines that start up and make masters slave of no one. 
+If the Active Redis crashes or goes down for maintenance, we want the application to seamlessly use(read/write) data from the backup server. But the problem is once the backup takes over as active it will be out of sync with the original(master) and should become the slave of the current active. This is solved by redis-proxy, which proxies the active redis. It is also smart enough to issue slave of commands to machines that start up and make masters slave of no one. 
 
 This reduces the common redis slave master replication dance that needs to be done when bad stuff happens or maintenance of the servers are needed
 
@@ -46,21 +46,18 @@ Node.js and NPM are prerequistes. [Here is the link to install both.](https://gi
 
 * `redis-proxy <path to config.json>`
 
-or
-
-* `redis-proxy` to use the defaults config.json which has basic defaults
 
 From Source
 -------------
 
     git clone git@github.com:sreeix/redis-proxy.git
+	
+	`npm install`
  
     Modify the config/config.json
  
     npm start
  
- 
-
 Scenarios
 ============
 
@@ -97,6 +94,7 @@ Redis-Proxy Stability
 Redis proxy can become a single point of failure, If it goes down your redis servers will become inaccessible. There are 2 possible setups
 
 *  Using Nodemon/Forever to keep the redis proxy up all the time
+
 *  Have a backup redis-proxy on Elastic IP or Virtual IP and switch manually or using keepalived.
 
 
