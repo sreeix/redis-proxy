@@ -50,13 +50,13 @@ Node.js and NPM are prerequistes. [Here is the link to install both.](https://gi
 From Source
 -------------
 
-    git clone git@github.com:sreeix/redis-proxy.git
-	
-	`npm install`
- 
-    Modify the config/config.json
- 
-    npm start
+* `git clone git@github.com:sreeix/redis-proxy.git`
+
+* `npm install`
+
+* `Modify the config/config.json`
+
+* `npm start`
  
 Scenarios
 ============
