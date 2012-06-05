@@ -12,4 +12,5 @@
   ,"check_period": 5000
   ,"pool_size": 50
   , "debug": false
+  , "slave_balance": "none"
 }
