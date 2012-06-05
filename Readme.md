@@ -12,7 +12,6 @@ If the Active Redis crashes or goes down for maintenance, we want the applicatio
 
 This reduces the common redis slave master replication dance that needs to be done when bad stuff happens or maintenance of the servers are needed
 
-
 Features
 ============
 
@@ -25,6 +24,14 @@ Features
 * Supports Pipelining
 
 * Honors Existing Master Slave Configurations( ie. if the  masters and slaves are already setup then it will maintain the same configuration, instead of largescale movement of data)
+
+* Read Write splitting (Unstable Branch)
+
+ * Read write Forking. It is available for testing on the `unstable` branch.
+   * It lets standard non mutating commands go to the slaves( instead of the master). This will almost always improve the throughput of the cluster of Redis servers.
+   * Mutating commands always go to Master
+   * Unknown commands(Renamed via the redis config) will go to the master
+
 
 Disclaimer
 =============
