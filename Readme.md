@@ -20,11 +20,14 @@ Features
 
 * Automatic slave upgrade on master failure
 
+* Supports Reads going to Slaves and Writes going to master. (Read/Write Forking)
+
 * Connection Pooling
 
 * Supports Pipelining
 
 * Honors Existing Master Slave Configurations( ie. if the  masters and slaves are already setup then it will maintain the same configuration, instead of largescale movement of data)
+
 
 Disclaimer
 =============
@@ -96,7 +99,6 @@ Redis proxy can become a single point of failure, If it goes down your redis ser
 *  Using Nodemon/Forever to keep the redis proxy up all the time
 
 *  Have a backup redis-proxy on Elastic IP or Virtual IP and switch manually or using keepalived.
-
 
 
 Limitations /TODOS
