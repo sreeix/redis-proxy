@@ -25,12 +25,12 @@ Features
 
 * Honors Existing Master Slave Configurations( ie. if the  masters and slaves are already setup then it will maintain the same configuration, instead of largescale movement of data)
 
-* Read Write splitting (Unstable Branch)
-
- * Read write Forking. It is available for testing on the `unstable` branch.
+* Read write Splitting. It is available for testing, but not published to npm.
+   * Turn it on by adding mode: "readsToSlaves" in the configuration(default is allToMaster)
+   * If there are multiple slaves, a round robin strategy is used.
    * It lets standard non mutating commands go to the slaves( instead of the master). This will almost always improve the throughput of the cluster of Redis servers.
-   * Mutating commands always go to Master
-   * Unknown commands(Renamed via the redis config) will go to the master
+   * Mutating commands always go to Master.
+   * Unknown commands(Renamed via the redis config) will go to the Master.
 
 
 Disclaimer
@@ -82,6 +82,7 @@ The standard scenario is each redis has a backup redis.
 * R2  Goes down
   * We make R1 Slave of no one
   * R1 is now  the active redis.
+
 
 If Both of them go down together, We just return errors and wait for one of them to come back on.
 

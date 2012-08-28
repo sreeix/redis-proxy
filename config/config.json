@@ -3,13 +3,15 @@
     "host": "localhost"
     ,"port": 6379
   }
-, {
+  , {
     "host": "localhost"
     , "port": 6389
   }
   ]
+  ,"mode": "allToMaster"
   ,"listen_port": 9999
   ,"check_period": 5000
   ,"pool_size": 50
   , "debug": false
+  , "slave_balance": "roundrobin"
 }
