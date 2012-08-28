@@ -33,6 +33,10 @@ Features
    * Unknown commands(Renamed via the redis config) will go to the Master.
 
 
+![Typical setup!](http://github.com/sreeix/redis-proxy/raw/master/docs/Typical_Setup.jpg)
+
+Image courtesy  Marlon Li([Marlon Li](https://github.com/atrun)) represents how it is being or can be used.
+
 Disclaimer
 =============
 
