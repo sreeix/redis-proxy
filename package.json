@@ -2,7 +2,7 @@
     "author": "Sreekanth <gabbar@activesphere.com>"
   , "name": "redis-proxy"
   , "description": "proxy for redis servers"
-  , "version": "0.0.3"
+  , "version": "0.0.4"
   , "repository": {
       "type": "git"
     , "url": "git@github.com:sreeix/redis-proxy.git"
