@@ -73,15 +73,12 @@ The standard scenario is each redis has a backup redis.
 * R1 backed by R2
 * R1 is slave of no one.
 * R2 is slave of R1
-
 * R1 Goes down
   * We issue Slave of no one to R2
   * Make R2 the active redis
-
 * R1 Comes up.
   * We issue Slave of R2 to R1
   * R2 is still the active server
-
 * R2  Goes down
   * We make R1 Slave of no one
   * R1 is now  the active redis.
