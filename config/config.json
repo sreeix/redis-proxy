@@ -8,9 +8,10 @@
     , "port": 6389
   }
   ]
+  ,"mode": "readsToSlaves"
   ,"listen_port": 9999
   ,"check_period": 5000
   ,"pool_size": 50
   , "debug": false
-  , "slave_balance": "none"
+  , "slave_balance": "roundrobin"
 }
