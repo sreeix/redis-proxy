@@ -34,8 +34,14 @@ var server = net.createServer(function (socket) {
       }
     });
   });
-});
+})
 
 redis_proxy.watch();
+redis_proxy.on("up",incrementStats).on("down", incrementStats).on()
 server.listen(config.listen_port, "127.0.0.1");
 logger.log("Redis proxy is listening on 127.0.0.1:" + config.listen_port);
+
+if(config.show_web_ui){
+  logger.info("Starting the web UI.");
+  require('./lib/webui');
+}

@@ -16,7 +16,7 @@
   , "node-version": ">0.4.7"
   , "dependencies": {
       "jade": "0.20.0"
-    , "express": "2.5.1"
+    , "express": "3.x"
     , "underscore": "1.2.4"
     , "async": "0.1.15"
     , "winston": "0.5.10"
