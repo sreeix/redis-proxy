@@ -41,4 +41,4 @@ var server = net.createServer(function (socket) {
 redis_proxy.watch();
 
 server.listen(listenPort, bindAddress);
-logger.log("Redis proxy is listening on" +bindAddress+":" + listenPort);
+logger.info("Redis proxy is listening on" +bindAddress+":" + listenPort);
