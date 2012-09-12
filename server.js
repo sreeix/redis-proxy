@@ -8,6 +8,8 @@ var configFile = process.argv[2] || "config/config.json";
 logger.info('using '+ configFile + ' as configuration source');
 var config = JSON.parse(fs.readFileSync(configFile));
 var redis_proxy = new RedisProxy(config);
+var bindAddress = config.bind_address || "127.0.0.1",
+    listenPort = config.listen_port || 9999;
 logger.level = config.debug ? 'debug' : 'info';
 
 var server = net.createServer(function (socket) {
@@ -37,5 +39,6 @@ var server = net.createServer(function (socket) {
 });
 
 redis_proxy.watch();
-server.listen(config.listen_port, "127.0.0.1");
-logger.log("Redis proxy is listening on 127.0.0.1:" + config.listen_port);
+
+server.listen(listenPort, bindAddress);
+logger.log("Redis proxy is listening on" +bindAddress+":" + listenPort);
