@@ -1,4 +1,4 @@
-{
+  {
   "servers": [{
     "host": "localhost"
     ,"port": 6379
@@ -11,6 +11,7 @@
   ,"mode": "readsToSlaves"
   ,"show_web_ui": true
   ,"listen_port": 9999
+  ,"bind_address": "0.0.0.0"
   ,"check_period": 5000
   ,"pool_size": 50
   , "debug": false

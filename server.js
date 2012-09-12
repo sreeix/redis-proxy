@@ -8,6 +8,8 @@ var configFile = process.argv[2] || "config/config.json";
 logger.info('using '+ configFile + ' as configuration source');
 var config = JSON.parse(fs.readFileSync(configFile));
 var redis_proxy = new RedisProxy(config);
+var bindAddress = config.bind_address || "127.0.0.1",
+    listenPort = config.listen_port || 9999;
 logger.level = config.debug ? 'debug' : 'info';
 
 var server = net.createServer(function (socket) {
@@ -16,7 +18,9 @@ var server = net.createServer(function (socket) {
     logger.debug('client disconnected');
     // Hack to get the connection identifier, so that we can release the connection
     // the usual socket.remoteAddress, socket.remotePort don't seem to work after connection has ended.
-    redis_proxy.quit(this._peername.address+':'+this._peername.port);
+    if(this._peername){
+      redis_proxy.quit(this._peername.address+':'+this._peername.port);
+    }
   });
 
   socket.on('data', function(data) {
@@ -37,11 +41,12 @@ var server = net.createServer(function (socket) {
 })
 
 redis_proxy.watch();
-redis_proxy.on("up",incrementStats).on("down", incrementStats).on()
-server.listen(config.listen_port, "127.0.0.1");
-logger.log("Redis proxy is listening on 127.0.0.1:" + config.listen_port);
 
+redis_proxy.on("up",incrementStats).on("down", incrementStats).on()
 if(config.show_web_ui){
   logger.info("Starting the web UI.");
   require('./lib/webui');
 }
+
+server.listen(listenPort, bindAddress);
+logger.info("Redis proxy is listening on " +bindAddress+" : " + listenPort);
