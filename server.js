@@ -18,7 +18,9 @@ var server = net.createServer(function (socket) {
     logger.debug('client disconnected');
     // Hack to get the connection identifier, so that we can release the connection
     // the usual socket.remoteAddress, socket.remotePort don't seem to work after connection has ended.
-    redis_proxy.quit(this._peername.address+':'+this._peername.port);
+    if(this._peername){
+      redis_proxy.quit(this._peername.address+':'+this._peername.port);
+    }
   });
 
   socket.on('data', function(data) {
@@ -41,4 +43,4 @@ var server = net.createServer(function (socket) {
 redis_proxy.watch();
 
 server.listen(listenPort, bindAddress);
-logger.info("Redis proxy is listening on" +bindAddress+":" + listenPort);
+logger.info("Redis proxy is listening on " +bindAddress+" : " + listenPort);
