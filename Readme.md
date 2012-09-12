@@ -16,15 +16,10 @@ Features
 ============
 
 * Server Monitoring (to track masters and slaves)
-
 * Automatic slave upgrade on master failure
-
 * Connection Pooling
-
 * Supports Pipelining
-
 * Honors Existing Master Slave Configurations( ie. if the  masters and slaves are already setup then it will maintain the same configuration, instead of largescale movement of data)
-
 * Read write Splitting. It is available for testing, but not published to npm.
    * Turn it on by adding mode: "readsToSlaves" in the configuration(default is allToMaster)
    * If there are multiple slaves, a round robin strategy is used.
