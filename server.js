@@ -2,6 +2,7 @@ var net = require('net');
 var fs = require('fs');
 var util = require('util');
 var RedisProxy = require('./lib/redis_proxy');
+var stats = require('./lib/stats')
 var logger = require('winston');
 
 var configFile = process.argv[2] || "config/config.json";
@@ -24,12 +25,15 @@ var server = net.createServer(function (socket) {
   });
 
   socket.on('data', function(data) {
+    stats.incr("requests");
     var command = data.toString('utf8'), id = socket.remoteAddress+':'+socket.remotePort;
     redis_proxy.sendCommand(command, id, function(err, res) {
       if(err){
+        stats.incr("response:errors");
         logger.error(err);
       }
       if(res){
+        stats.incr("responses");
         socket.write(res.toString('utf8'));
       }
       if(/quit/i.test(data)){
@@ -40,9 +44,9 @@ var server = net.createServer(function (socket) {
   });
 })
 
+stats.set("start_time", new Date().valueOf());
 redis_proxy.watch();
 
-redis_proxy.on("up",incrementStats).on("down", incrementStats).on()
 if(config.show_web_ui){
   logger.info("Starting the web UI.");
   require('./lib/webui');
