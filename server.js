@@ -49,7 +49,7 @@ redis_proxy.watch();
 
 if(config.show_web_ui){
   logger.info("Starting the web UI.");
-  require('./lib/webui');
+  require('./lib/webui')(config);
 }
 
 server.listen(listenPort, bindAddress);
