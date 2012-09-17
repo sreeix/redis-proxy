@@ -15,7 +15,7 @@ logger.level = config.debug ? 'debug' : 'info';
 var server = net.createServer(function (socket) {
   logger.debug('client connected');
   socket.on('end', function() {
-    logger.debug('client disconnected');
+    logger.info('client disconnected');
     // Hack to get the connection identifier, so that we can release the connection
     // the usual socket.remoteAddress, socket.remotePort don't seem to work after connection has ended.
     if(this._peername){
@@ -33,7 +33,7 @@ var server = net.createServer(function (socket) {
         socket.write(res.toString('utf8'));
       }
       if(/quit/i.test(data)){
-        logger.debug('QUIT command received closing the connection' );
+        logger.info('QUIT command received closing the connection' );
         socket.end();
       }
     });
