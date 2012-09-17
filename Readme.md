@@ -31,6 +31,11 @@ Features
 ![Typical setup!](http://github.com/sreeix/redis-proxy/raw/master/docs/Typical_Setup.jpg)
 Image courtesy  Marlon Li([Marlon Li](https://github.com/atrun)) represents how it is being or can be used.
 
+
+Configuration
+==============
+[Config settings](http://github.com/sreeix/redis-proxy/raw/master/Configuration.md)
+
 Disclaimer
 =============
 
