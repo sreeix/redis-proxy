@@ -1,8 +1,8 @@
 {
     "author": "Sreekanth <gabbar@activesphere.com>"
   , "name": "redis-proxy"
-  , "description": "proxy for redis servers"
-  , "version": "0.0.4"
+  , "description": "{Proxy for redis servers. Now supports read write splits"
+  , "version": "0.0.5"
   , "repository": {
       "type": "git"
     , "url": "git@github.com:sreeix/redis-proxy.git"
