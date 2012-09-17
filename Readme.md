@@ -34,7 +34,7 @@ Image courtesy  Marlon Li([Marlon Li](https://github.com/atrun)) represents how 
 
 Configuration
 ==============
-[Config settings](http://github.com/sreeix/redis-proxy/raw/master/config/Configuration.md)
+[Config settings](https://github.com/sreeix/redis-proxy/blob/master/config/configuration.md)
 
 Disclaimer
 =============
