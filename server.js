@@ -10,7 +10,7 @@ var config = JSON.parse(fs.readFileSync(configFile));
 var redis_proxy = new RedisProxy(config);
 var bindAddress = config.bind_address || "127.0.0.1",
     listenPort = config.listen_port || 9999;
-logger.level = config.debug ? 'debug' : 'info';
+logger.level = config.debug ? 'debug' : 'error';
 
 var server = net.createServer(function (socket) {
   logger.debug('client connected');
