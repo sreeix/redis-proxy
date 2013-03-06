@@ -19,7 +19,7 @@
     , "express": "2.5.1"
     , "underscore": "1.2.4"
     , "async": "0.1.15"
-    , "winston": "0.5.10"
+    , "winston": "0.6.2"
     , "hiredis": ""
     , "connection_pool": "0.0.2"
     , "node-redis-raw": "0.0.2"

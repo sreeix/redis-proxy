@@ -1,16 +1,18 @@
 var net = require('net');
 var fs = require('fs');
 var util = require('util');
-var RedisProxy = require('./lib/redis_proxy');
-var logger = require('winston');
+var logging = require('./lib/logging'), logger = logging.logger;
 
 var configFile = process.argv[2] || "config/config.json";
 logger.info('using '+ configFile + ' as configuration source');
 var config = JSON.parse(fs.readFileSync(configFile));
+logger = logging.setLogLevel (config.debug);
+
+var RedisProxy = require('./lib/redis_proxy');
 var redis_proxy = new RedisProxy(config);
 var bindAddress = config.bind_address || "127.0.0.1",
     listenPort = config.listen_port || 9999;
-logger.level = config.debug ? 'debug' : 'error';
+
 
 var server = net.createServer(function (socket) {
   logger.debug('client connected');
