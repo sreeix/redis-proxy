@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" media="screen"/>
+</head>
+  <body>
+  <table  class="table table-striped table-bordered table-hover">
+  <thead>
+  <tr>
+    <th>Command</th>
+    <th>Total Requests</th>
+    <th>Total Time Taken</th>
+    <th>Requests per second</th>
+    <th>Max Time taken</th>
+    </tr>
+    </thead>
+    <tbody>
+     
+      <tr>
+        <td>PING (inline)</td>
+        <td>10000</td>
+        <td>0.99 seconds</td>
+        <td>10090.82</td>
+        <td>8ms</td>
+      </tr> 
+     
+      <tr>
+        <td>PING</td>
+        <td>10000</td>
+        <td>0.97 seconds</td>
+        <td>10298.66</td>
+        <td>3ms</td>
+      </tr> 
+     
+      <tr>
+        <td>MSET (10 keys)</td>
+        <td>10000</td>
+        <td>1.08 seconds</td>
+        <td>9302.33</td>
+        <td>10ms</td>
+      </tr> 
+     
+      <tr>
+        <td>SET</td>
+        <td>10000</td>
+        <td>0.98 seconds</td>
+        <td>10162.60</td>
+        <td>2ms</td>
+      </tr> 
+     
+      <tr>
+        <td>GET</td>
+        <td>10000</td>
+        <td>0.96 seconds</td>
+        <td>10460.25</td>
+        <td>2ms</td>
+      </tr> 
+     
+      <tr>
+        <td>INCR</td>
+        <td>10000</td>
+        <td>1.00 seconds</td>
+        <td>10010.01</td>
+        <td>2ms</td>
+      </tr> 
+     
+      <tr>
+        <td>LPUSH</td>
+        <td>10000</td>
+        <td>0.99 seconds</td>
+        <td>10080.65</td>
+        <td>11ms</td>
+      </tr> 
+     
+      <tr>
+        <td>LPOP</td>
+        <td>10000</td>
+        <td>0.98 seconds</td>
+        <td>10256.41</td>
+        <td>10ms</td>
+      </tr> 
+     
+      <tr>
+        <td>SADD</td>
+        <td>10000</td>
+        <td>0.99 seconds</td>
+        <td>10101.01</td>
+        <td>3ms</td>
+      </tr> 
+     
+      <tr>
+        <td>SPOP</td>
+        <td>10000</td>
+        <td>0.98 seconds</td>
+        <td>10214.50</td>
+        <td>6ms</td>
+      </tr> 
+     
+      <tr>
+        <td>LPUSH (again, in order to bench LRANGE)</td>
+        <td>10000</td>
+        <td>1.01 seconds</td>
+        <td>9910.80</td>
+        <td>4ms</td>
+      </tr> 
+     
+      <tr>
+        <td>LRANGE (first 100 elements)</td>
+        <td>10000</td>
+        <td>0.96 seconds</td>
+        <td>10395.01</td>
+        <td>8ms</td>
+      </tr> 
+     
+      <tr>
+        <td>LRANGE (first 300 elements)</td>
+        <td>10000</td>
+        <td>0.99 seconds</td>
+        <td>10141.99</td>
+        <td>2ms</td>
+      </tr> 
+     
+      <tr>
+        <td>LRANGE (first 450 elements)</td>
+        <td>10000</td>
+        <td>1.03 seconds</td>
+        <td>9680.54</td>
+        <td>10ms</td>
+      </tr> 
+     
+      <tr>
+        <td>LRANGE (first 600 elements)</td>
+        <td>10000</td>
+        <td>1.05 seconds</td>
+        <td>9505.70</td>
+        <td>2ms</td>
+      </tr> 
+    
+    </tbody>
+  </table>
+  </body>
+</html>
