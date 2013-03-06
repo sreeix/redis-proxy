@@ -17,7 +17,7 @@
   , "dependencies": {
       "jade": "0.20.0"
     , "express": "2.5.1"
-    , "underscore": "1.2.4"
+    , "underscore": "1.4.4"
     , "async": "0.1.15"
     , "winston": "0.5.10"
     , "hiredis": ""
