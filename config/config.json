@@ -15,4 +15,5 @@
   ,"pool_size": 50
   , "debug": false
   , "slave_balance": "roundrobin"
+  , "loggers":[{ "filename": "redis-proxy.log", "level":"silly" } ]
 }

@@ -6,7 +6,7 @@ var logging = require('./lib/logging'), logger = logging.logger;
 var configFile = process.argv[2] || "config/config.json";
 logger.info('using '+ configFile + ' as configuration source');
 var config = JSON.parse(fs.readFileSync(configFile));
-logger = logging.setLogLevel (config.debug);
+logger = logging.setupLogging(config.debug, config.loggers);
 
 var RedisProxy = require('./lib/redis_proxy');
 var redis_proxy = new RedisProxy(config);
