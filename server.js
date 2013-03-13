@@ -30,6 +30,7 @@ var server = net.createServer(function (socket) {
     redis_proxy.sendCommand(command, id, function(err, res) {
       if(err){
         logger.error(err);
+        return socket.write("+ERR "+ err+"\r\n");
       }
       if(res){
         socket.write(res.toString('utf8'));

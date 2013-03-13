@@ -23,7 +23,7 @@
     , "hiredis": ""
     , "connection_pool": "0.0.2"
     , "node-redis-raw": "0.0.2"
-    , "redis": "0.7.1"
+    , "redis": "0.8.2"
   }
   , "devDependencies": {
       "mocha": "0.0.8"
