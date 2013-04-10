@@ -27,19 +27,14 @@ var server = net.createServer(function (socket) {
 
   socket.on('data', function(data) {
     var command = data.toString('utf8'), id = socket.remoteAddress+':'+socket.remotePort;
-    redis_proxy.sendCommand(command, id, function(err, res) {
+    redis_proxy.sendCommand(command, id, function(err, response) {
+      response.removeAllListeners();
+      logger.debug('got response');
       if(err){
-        logger.error(err);
-        return socket.write("+ERR "+ err+"\r\n");
+        return socket.write("-ERR Error Happened "+ err);
       }
-      if(res){
-        socket.write(res.toString('utf8'));
-      }
-      if(/quit/i.test(data)){
-        logger.info('QUIT command received closing the connection' );
-        socket.end();
-      }
-    });
+      response.pipe(socket);
+    })
   });
 });
 
