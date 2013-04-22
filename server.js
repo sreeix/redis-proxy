@@ -15,7 +15,8 @@ var bindAddress = config.bind_address || "127.0.0.1",
 
 
 var server = net.createServer(function (socket) {
-  logger.debug('client connected');
+  var id = socket.remoteAddress+':'+socket.remotePort
+  logger.debug('client connected ' + id);
   socket.on('end', function() {
     logger.info('client disconnected');
     // Hack to get the connection identifier, so that we can release the connection
@@ -28,8 +29,7 @@ var server = net.createServer(function (socket) {
   socket.on('data', function(data) {
     var command = data.toString('utf8'), id = socket.remoteAddress+':'+socket.remotePort;
     redis_proxy.sendCommand(command, id, function(err, response) {
-      response.removeAllListeners();
-      logger.debug('got response');
+      if( response) response.unpipe();
       if(err){
         return socket.write("-ERR Error Happened "+ err);
       }

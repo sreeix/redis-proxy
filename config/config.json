@@ -1,7 +1,7 @@
   {
   "servers": [{
     "host": "localhost"
-    ,"port": 6399
+    ,"port": 6379
   }
   , {
     "host": "localhost"
