@@ -3,7 +3,7 @@ Redis-proxy
 
 It's like haproxy except for redis. 
 
-
+*This is a dead project, please look at twemproxy or redis sentinal*
 Why RedisProxy?
 
 Typically for every redis server we setup, we have a backup server setup as a slave of the main server.
